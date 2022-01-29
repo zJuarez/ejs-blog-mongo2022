@@ -24,6 +24,34 @@ router.post('/newPost', async (req,res) =>{
 });
 
 
+router.get('/edit/:id', async (req,res) =>{
+  let id = req.params.id
+  let post = await Post.findById(id)
+
+  res.render('edit',{post});
+});
+
+
+// # PENDIENTE
+router.post('/edit/:id', async (req,res) =>{
+
+  res.redirect("/")
+});
+
+// # PENDIENTE
+router.post('/delete/:id', async (req,res) =>{
+
+  res.redirect("/")
+});
+
+
+router.get('/delete/:id', async (req,res) =>{
+  let id = req.params.id
+  let post = await Post.findById(id)
+
+  res.render('delete',{post});
+});
+
 
 
 module.exports = router;
