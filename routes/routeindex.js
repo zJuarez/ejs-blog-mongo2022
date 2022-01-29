@@ -31,16 +31,16 @@ router.get('/edit/:id', async (req,res) =>{
   res.render('edit',{post});
 });
 
-
-// # PENDIENTE
 router.post('/edit/:id', async (req,res) =>{
+  let id = req.params.id
+  await Post.findOneAndUpdate({_id : id}, req.body)
 
   res.redirect("/")
 });
 
-// # PENDIENTE
 router.post('/delete/:id', async (req,res) =>{
-
+    let id = req.params.id
+  await Post.findOneAndRemove({_id : id})
   res.redirect("/")
 });
 
